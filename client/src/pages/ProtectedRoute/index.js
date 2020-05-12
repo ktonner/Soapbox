@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from 'react'
 import Card from "../../components/Card"
 import { UserContext } from "../../utils/UserContext";
+import CreatePost from "../../components/CreatePostBtn/index"
 
 /* This is a very simple component.. it probably doesn't need to be a smart component at this point but you never know what's goingto happen in the future */
 
@@ -40,6 +41,7 @@ function ProtectedRoute() {
 			<Card title="Welcome.">
 				<p>You are logged in.</p>
 			</Card>
+			<CreatePost/>
 		</div>
 	)
 
