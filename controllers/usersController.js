@@ -74,3 +74,20 @@ module.exports = {
 	}
 
 };
+//When a single user is retrieved, we want the user object to include the names and Ids of the users referenced in the following and followed arrays
+const userById = async(req, res, next, id) => {
+	try {
+		let user = await Account.findById(id)
+			.populate("following", "_id username")
+			.populate("followed", "_id username")
+			.exec()
+		if (!user) {
+			return res.status(400).json({error: "User not found"})
+		} else {
+			req.profile = user
+		}
+		next()
+	} catch(err) {
+		return res.status(400).json({error: "Could not retrieve user"})
+	}
+}
