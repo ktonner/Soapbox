@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Modal from 'react-bootstrap/Modal'
 import CreatePostForm from '../CreatePostForm/index'
 import API from "../../utils/postsAPI"
-
+import { UserContext } from "../../utils/UserContext";
 function CreatePost() {
+  const [user, dispatch] = useContext(UserContext);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -16,7 +17,7 @@ function CreatePost() {
   const [text, setText] = useState("")
   const [tags, setTags] = useState("")
 
-  const user = API.getUser
+
 
 
   function handleFormSubmit(event) {
