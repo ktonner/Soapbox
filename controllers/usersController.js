@@ -71,23 +71,50 @@ module.exports = {
 	test: function (req, res, next) {
 		console.log(`Ping Dinger ${req.statusCode}`);
 		res.status(200).send("Dong!");
+	},
+	//Method that will update the following array for the current user by pushing the followed user's reference into the array
+ 	addFollowing: async function(req, res, next) {
+	try {
+		await Account.findByIdAndUpdate(req.body.accountId,
+			{$push: {following: req.body.followId}})
+		next()
+	}  catch (err) {
+		return res.status(400).json({error: errorHandler.getErrorMessage(err)})
 	}
+},
+// Method that will add the current user's reference to the followed user's followers array
+ 	addFollower: async function(req, res) {
+	try {
+		let result = await Account.findByIdAndUpdate(req.body.followId,
+							{$push: {followed: req.body.accountId}}, {new: true})
+							.populate("following", "_id username")
+							.populate("followed", "_id username")
+							.exec()
+		res.json(result)
+	} catch(err) {
+		return res.status(400).json({error: errorHandler.getErrorMessage(err)})
+	}
+}
+
 
 };
 //When a single user is retrieved, we want the user object to include the names and Ids of the users referenced in the following and followed arrays
-const userById = async(req, res, next, id) => {
-	try {
-		let user = await Account.findById(id)
-			.populate("following", "_id username")
-			.populate("followed", "_id username")
-			.exec()
-		if (!user) {
-			return res.status(400).json({error: "User not found"})
-		} else {
-			req.profile = user
-		}
-		next()
-	} catch(err) {
-		return res.status(400).json({error: "Could not retrieve user"})
-	}
-}
+// const userById = async(req, res, next, id) => {
+// 	try {
+// 		let user = await Account.findById(id)
+// 			.populate("following", "_id username")
+// 			.populate("followed", "_id username")
+// 			.exec()
+// 		if (!user) {
+// 			return res.status(400).json({error: "User not found"})
+// 		} else {
+// 			req.profile = user
+// 		}
+// 		next()
+// 	} catch(err) {
+// 		return res.status(400).json({error: "Could not retrieve user"})
+// 	}
+// }
+
+//Method that will update the following array for the current user by pushing the followed user's reference into the array
+

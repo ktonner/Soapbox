@@ -28,3 +28,7 @@ router
   .get(usersController.test);
 
 module.exports = router;
+
+//Set up follow route
+router.route("api/users/follow")
+  .put(usersController.addFollowing, usersController.addFollower)
