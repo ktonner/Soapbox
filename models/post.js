@@ -16,4 +16,4 @@ Post.associate = function(models) {
     });
   };
 
-module.exports = mongoose.model('posts', Post);
+module.exports = mongoose.model('post', Post);
