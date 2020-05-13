@@ -6,7 +6,7 @@ const Post = new Schema({
     author: { type: String, required: true },
     text: String,
     date: { type: Date, default: Date.now },
-    tags: {type: String}
+    tags: {type: Array}
 });
 Post.associate = function(models) {
     Post.belongsTo(models.Account, {
