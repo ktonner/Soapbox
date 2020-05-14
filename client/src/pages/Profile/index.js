@@ -1,32 +1,40 @@
 import React, { useEffect, useContext, useState } from 'react'
-//import { UserContext } from "../../utils/UserContext";
-import API from "../../utils/postsAPI"
+import { UserContext } from "../../utils/UserContext";
 
 /* This is a very simple component.. it probably doesn't need to be a smart component at this point but you never know what's goingto happen in the future */
 
 function Profile() {
-    //const [user, dispatch] = useContext(UserContext);
-
-    const [state, setPosts] = useState({
-        title: "",
-        text: "",
-        tags: "",
-        posts: []
-    })
-
+    const [user, dispatch] = useContext(UserContext);
+    console.log("Log out user", user)
+    
     useEffect(() => {
-        API.getPosts()
-            .then(res => {
-                console.log("This is the data", res)
-                setPosts({ posts: res.data })
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }, []);
-    const displayPost = (posts) => {
-        if (!posts.length) return null;
-        return posts.map((post, index) => (
+		fetch('api/users/user', {
+			credentials: 'include'
+		})
+			.then((res) => {
+				console.log(`response to authenticate ${res}`);
+				return res.json(res)
+
+			})
+			.then(data => {
+				console.log(data);
+				dispatch({
+					type: "GET_USER",
+					payload: data
+				})
+
+			})
+			.catch((err) => {
+				console.log('Error fetching authorized user.');
+			});
+
+	}, []);
+
+    
+    const displayPost = () => {
+        console.log("Should log out the posts" ,user)
+        //if (!user.posts.length) return null;
+        return user.posts.map((post, index) => (
 
             <div key={index} className="card">
                 <div className="card-body">
@@ -46,7 +54,7 @@ function Profile() {
                 <div className="col-md-6">
                     <h4>List of your posts</h4>
                     <br />
-                    {displayPost(state.posts)}
+                    {displayPost()}
                 </div>
                 <div className="col-md-6">
                     <h4>List of people you have followed</h4>
