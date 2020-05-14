@@ -1,5 +1,5 @@
 const Post = require("../models/post");
-
+const Account = require("../models/account");
 // Defining methods for the postsController
 module.exports = {
   findAll: function(req, res) {
@@ -19,6 +19,7 @@ module.exports = {
     console.log(req.body)
     Post
       .create(req.body)
+      .then((data) => Account.findByIdAndUpdate(req.params.id, { $push: { posts: data._id } }, { new: true }))
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

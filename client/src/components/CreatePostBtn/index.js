@@ -24,6 +24,7 @@ function CreatePost() {
 
 
   function handleFormSubmit(event) {
+    console.log("This is the user", user)
     event.preventDefault();
     console.log(title, text, tags)
     if (title && text) {
@@ -32,7 +33,7 @@ function CreatePost() {
         text,
         tags,
         author: user.username
-      })
+      }, user.id)
         .then(res =>
           handleClose())
         .catch(err => console.log(err));

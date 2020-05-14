@@ -8,12 +8,6 @@ const Post = new Schema({
     date: { type: Date, default: Date.now },
     tags: {type: Array}
 });
-Post.associate = function(models) {
-    Post.belongsTo(models.Account, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+
 
 module.exports = mongoose.model('post', Post);

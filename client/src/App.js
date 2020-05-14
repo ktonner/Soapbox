@@ -11,8 +11,8 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import { Container } from "./components/Grid";
 import PublicRoute from "./pages/PublicRoute";
-import ProtectedRoute from "./pages/ProtectedRoute/index";
-import Profile from "./pages/ProtectedRoute/profile";
+import ProtectedRoute from "./pages/ProtectedRoute";
+import Profile from "./pages/Profile";
 import './App.css';
 import { UserProvider } from "./utils/UserContext";
 
@@ -27,8 +27,8 @@ const AuthExample = () => (
 						<Route path="/public" component={PublicRoute} />
 						<Route path="/login" component={Login} />
 						<Route path="/register" component={Register} />
-						<PrivateRoute path="/protected" component={ProtectedRoute} />
-						<PrivateRoute path="/profile" component={Profile} />
+						<PrivateRoute exact path="/protected" component={ProtectedRoute} />
+						<PrivateRoute exact path="/profile" component={Profile} />
 						{/* <Route component={NoMatch} /> */}
 					</Switch>
 				</Container>

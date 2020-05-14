@@ -8,12 +8,14 @@ module.exports = {
 
 		if (user) {
 			Account.findOne({ username: user })
+				.populate("posts")
 				.then(userData => {
-					console.log(userData);
-					const { _id, username } = userData;
+					console.log("POST", userData);
+					const { _id, username, posts } = userData;
 					return res.status(200).json({
 						id: _id,
 						username,
+						posts,
 						authenticated: true
 					})
 				})

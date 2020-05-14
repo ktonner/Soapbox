@@ -12,13 +12,13 @@ const Account = new Schema({
     followed: [{
       type: Schema.Types.ObjectId,
       ref: "accounts"
+    }],
+    posts: [{
+      type: Schema.Types.ObjectId,
+      ref: "post"
     }]
 });
-Account.associate = function(models) {
-    Account.hasMany(models.Post, {
-      onDelete: "cascade"
-    });
-  };
+
 Account.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('accounts', Account);
