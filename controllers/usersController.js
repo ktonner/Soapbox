@@ -73,11 +73,12 @@ module.exports = {
 		res.status(200).send("Dong!");
 	},
 	//Method that will update the following array for the current user by pushing the followed user's reference into the array
- 	addFollowing: async function(req, res, next) {
+ 	addFollowing: async function(req, res) {
+		const { user } = req.session.passport
 	try {
-		await Account.findByIdAndUpdate(req.body.accountId,
-			{$push: {following: req.body.followId}})
-		next()
+	 const data = await Account.findOneAndUpdate({ username: user },
+			{$push: {following: req.params.id}})
+			res.json(data)
 	}  catch (err) {
 		return res.status(400).json({error: errorHandler.getErrorMessage(err)})
 	}
