@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import { handleFollow } from "../../utils/accountsAPI"
+import { handleFollow, newFollower } from "../../utils/accountsAPI"
 
 
 
@@ -11,7 +11,7 @@ const PostContext = React.createContext()
 class PostProvider extends Component {
     state = {
         date: Date.now(),
-        author: "5ebd6ba07742c859c49dd2bc",
+        author: "5ebd917836e6e814c8a7ebaa",
         title: "Test",
         text: "test",
         tags: ["test", "one", "two"]
@@ -38,6 +38,12 @@ const Post = () => {
             console.log(err)
         }
         )
+        newFollower(id).then(
+            data => console.log(data)
+            ).catch(err=>{
+                console.log(err)
+            }
+            )
     }
 
     return (

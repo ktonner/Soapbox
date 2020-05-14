@@ -12,5 +12,8 @@ import axios from "axios";
 //   }
     export const handleFollow = (id) => {
       return axios.put("/api/users/follow/" + id)
-      return axios.put("api/users/follower/" + id)
       }
+      
+    export const newFollower = (id) => {
+      return axios.put("api/users/follower/" + id)
+    }

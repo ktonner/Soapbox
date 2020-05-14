@@ -85,14 +85,19 @@ module.exports = {
 },
 // Method that will add the current user's reference to the followed user's followers array
  	addFollower: async function(req, res) {
+		const { user } = req.session.passport
+		const userName = {user}.user
 	try {
-		let result = await Account.findByIdAndUpdate(req.body.followId,
-							{$push: {followed: req.body.accountId}}, {new: true})
-							.populate("following", "_id username")
-							.populate("followed", "_id username")
-							.exec()
-		res.json(result)
-	} catch(err) {
+		Account.findOne({username: userName}, function(err, obj) { return obj._id }).then(
+			userID => 
+			Account.findOneAndUpdate({_id: req.params.id},
+			{$push: {followed: userID }}, {new: true})
+		// 					.populate("following", "_id username")
+		// 					.populate("followed", "_id username")
+		// 					.exec()
+		// res.json(result)
+		// )
+		)} catch(err) {
 		return res.status(400).json({error: errorHandler.getErrorMessage(err)})
 	}
 }
