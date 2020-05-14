@@ -27,8 +27,11 @@ router
   .route("/ping")
   .get(usersController.test);
 
-module.exports = router;
-
 //Set up follow route
-router.route("api/users/follow")
-  .put(usersController.addFollowing, usersController.addFollower)
+router.route("/follow/:id")
+  .put(usersController.addFollowing) 
+  
+router.route("/follower/:id")
+  .put(usersController.addFollower)
+
+  module.exports = router;
