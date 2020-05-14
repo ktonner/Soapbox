@@ -48,9 +48,13 @@ function Nav() {
           <li className="nav-item ">
             <Link style={buttonStyle} className=" btn btn-secondary" to="/public">Public Page</Link>
             <Link style={buttonStyle} className="btn btn-danger" to="/protected">Protected Page</Link>
+
+            <Link style={buttonStyle} className="btn btn-danger" to="/profile">Profile Page</Link>
+            
             {user.username ? "" :
               <Link style={buttonStyle} className="btn btn-warning" to="/register">Register a New User</Link>
             }
+
             <AuthButton />
           </li>
 
