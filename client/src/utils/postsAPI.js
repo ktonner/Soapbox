@@ -13,10 +13,10 @@ export default {
   deletePost: function(id) {
     return axios.delete("/api/posts/" + id);
   },
-  //Update the post with the given id
-  // updatePost: function(id) {
-  //   return axios.update("api/posts/" + id);
-  // },
+  //Update post by id
+  updatePost: function(updateData, id) {
+    return axios.put("api/posts/" + id, updateData);
+  },
   // Saves a post to the database
   savePost: function(postData, id) {
     console.log(postData)
