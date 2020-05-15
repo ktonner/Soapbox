@@ -1,26 +1,37 @@
 import React, { useEffect, useContext, useState } from 'react'
 import API from "../../utils/postsAPI"
 import Post from "../Post/index"
+import PostContext from "../../utils/PostContext"
 
-function DisplayCase() {
+function DisplayCase () {
 
-    // useEffect(() => {
-    //     API.getPosts().then(
-    //         (res) => {
-    //             console.log(res.json)
-    const [state, setPosts] = useState({
+    const [postState, setPost] = useState({
+        date: Date,
+        author: "",
         title: "",
         text: "",
-        tags: "",
-        posts: []
+        tags: []
     })
-
 
     useEffect(() => {
         API.getPosts()
             .then(res => {
                 console.log("This is the data", res)
-                setPosts({ posts: res.data })
+                (res.data).map(post=>{
+                    postState.date = post.date
+                    postState.author = post.author
+                    postState.title = post.title
+                    postState.text = post.text
+                    postState.tags = post.tags
+                    setPostState({})
+                    return(
+                    <div>
+                        <PostContext.Provider value = {postState}>
+                            <Post/>
+                        </PostContext.Provider>
+                    </div>
+                    )
+                })
             })
             .catch(err => {
                 console.log(err)

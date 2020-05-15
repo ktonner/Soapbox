@@ -10,11 +10,11 @@ const PostContext = React.createContext()
 
 class PostProvider extends Component {
     state = {
-        date: Date.now(),
-        author: "5ebd917836e6e814c8a7ebaa",
-        title: "Test",
-        text: "test",
-        tags: ["test", "one", "two"]
+        date: Date,
+        author: " ",
+        title: " ",
+        text: " ",
+        tags: []
     }
     render() {
         return (
