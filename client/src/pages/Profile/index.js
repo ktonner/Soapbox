@@ -16,13 +16,6 @@ function Profile() {
     const [tags, setTags] = useState("")
     const [author, setAuthor] = useState(user.username)
 
-    //const [post, setPost] = useState()
-    // const [formObject, setFormObject] = useState({
-    //     title: "",
-    //     text: "",
-    //     tags: [],
-    //     author: ""
-    // })
     const [showPost, setShowPost] = useState({})
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -32,9 +25,9 @@ function Profile() {
         console.log(updateArray)
         setShow(true);
         setShowPost(updateArray[0])
-        // setTitle(showPost.title);
-        // setText(showPost.text);
-        // setTags(showPost.tags);
+        setTitle(updateArray[0].title);
+        setText(updateArray[0].text);
+        setTags(updateArray[0].tags);
         
     }
     useEffect(() => {
@@ -60,11 +53,6 @@ function Profile() {
 
     }, [deleted, updated]);
 
-    // function handleInputChange(event) {
-    //     const { name, value } = event.target;
-    //     setFormObject({ ...formObject, [name]: value })
-    // };
-
     function handleFormSubmit(event, id) {
         console.log(title, text,tags)
         event.preventDefault();
@@ -77,6 +65,7 @@ function Profile() {
                 author: user.username
             }, id)
             .then(res => setUpdated(!updated))
+            .then(res => handleClose())
             .catch(err => console.log(err));
         }
     };
