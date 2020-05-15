@@ -7,7 +7,7 @@ const Post = new Schema({
     text: String,
     date: { type: Date, default: Date.now },
     tags: {type: Array},
-    authorID: {type: String}
+    authorID: {String}
 });
 
 
