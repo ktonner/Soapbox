@@ -9,6 +9,7 @@ import Modal from 'react-bootstrap/Modal'
 function Profile() {
     const [user, dispatch] = useContext(UserContext);
     const [deleted, setDeleted] = useState(false)
+    const [updated, setUpdated] = useState(false)
 
     const [title, setTitle] = useState("")
     const [text, setText] = useState("")
@@ -57,7 +58,7 @@ function Profile() {
                 console.log('Error fetching authorized user.');
             });
 
-    }, [deleted]);
+    }, [deleted, updated]);
 
     // function handleInputChange(event) {
     //     const { name, value } = event.target;
@@ -75,6 +76,7 @@ function Profile() {
                 tags: tags,
                 author: user.username
             }, id)
+            .then(res => setUpdated(!updated))
             .catch(err => console.log(err));
         }
     };
