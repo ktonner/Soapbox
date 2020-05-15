@@ -1,34 +1,13 @@
-import React, { Component } from "react";
+import React, { useContext } from "react";
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { handleFollow, newFollower } from "../../utils/accountsAPI"
-
-
-
-//creating context
-const PostContext = React.createContext()
-
-class PostProvider extends Component {
-    state = {
-        date: Date,
-        author: " ",
-        title: " ",
-        text: " ",
-        tags: []
-    }
-    render() {
-        return (
-            <PostContext.Provider value={{
-                state: this.state
-            }}>
-                {this.props.children}
-            </PostContext.Provider>
-        )
-    }
-};
+import PostContext from "../../utils/PostContext"
 
 
 const Post = () => {
+
+    const {date, author, title, text, tags} = useContext(PostContext)
 
     const handleClick = (id) => {
         console.log(id, "Follow")
@@ -47,23 +26,20 @@ const Post = () => {
     }
 
     return (
-        <PostProvider>
-            <PostContext.Consumer>
-                {(context) => (
                     <Card>
-                        <Card.Header className="text-muted">Posted by {context.state.author} at {context.state.date}
-                            <Button onClick={() => handleClick(context.state.author)}>Follow</Button>
+                        <Card.Header className="text-muted">Posted by {author} at {date}
+                            <Button onClick={() => handleClick({author})}>Follow</Button>
                         </Card.Header>
                         <Card.Body>
-                            <Card.Title>{context.state.title}</Card.Title>
+                            <Card.Title>{title}</Card.Title>
                             <Card.Text>
-                                {context.state.text}
+                                {text}
                             </Card.Text>
                         </Card.Body>
                         <Card.Footer className="text-muted">
                             {
                                 //Map loops over tags and formats them
-                                (context.state.tags).map((tag, index) => {
+                                (tags).map((tag, index) => {
                                     return (
                                         <p key={index} style={{ display: "inline" }}>#{tag} </p>
                                     )
@@ -72,9 +48,5 @@ const Post = () => {
                         </Card.Footer>
                     </Card>
                 )}
-            </PostContext.Consumer>
-        </PostProvider>
-    )
-}
 
 export default Post

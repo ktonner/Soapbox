@@ -3,7 +3,9 @@ import API from "../../utils/postsAPI"
 import Post from "../Post/index"
 import PostContext from "../../utils/PostContext"
 
-function DisplayCase () {
+function DisplayCase() {
+
+    let posts = []
 
     const [postState, setPost] = useState({
         date: Date,
@@ -13,39 +15,40 @@ function DisplayCase () {
         tags: []
     })
 
-    useEffect(() => {
-        API.getPosts()
-            .then(res => {
-                console.log("This is the data", res)
-                (res.data).map(post=>{
-                    postState.date = post.date
-                    postState.author = post.author
-                    postState.title = post.title
-                    postState.text = post.text
-                    postState.tags = post.tags
-                    setPostState({})
-                    return(
-                    <div>
-                        <PostContext.Provider value = {postState}>
-                            <Post/>
-                        </PostContext.Provider>
-                    </div>
-                    )
-                })
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }, []);
 
-    if (!state.length) { return null };
-    return state.map((post, index) => (
-        <div key={index}>
-            <h5>Title: {post.title}</h5>
-            <p>Content: {post.text}</p>
-            <p>#{post.tags}</p>
+    API.getPosts()
+        .then(res => {
+            console.log("This is the data", res)
+            posts = res.data
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
+    const postsMap = posts.map(post => {
+        console.log("This is the post", post)
+        postState.date = post.date
+        postState.author = post.author
+        postState.title = post.title
+        postState.text = post.text
+        postState.tags = post.tags
+        setPost({})
+        return (
+            <div>
+                <PostContext.Provider value={postState}>
+                    <Post />
+                </PostContext.Provider>
+            </div>
+        )
+    })
+
+    return (
+        <div>
+            Hello
+        {postsMap}
         </div>
-    ));
+    )
 }
 
 export default DisplayCase
+
