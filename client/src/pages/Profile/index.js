@@ -25,9 +25,9 @@ function Profile() {
         console.log(updateArray)
         setShow(true);
         setShowPost(updateArray[0])
-        // setTitle(showPost.title);
-        // setText(showPost.text);
-        // setTags(showPost.tags);
+        setTitle(updateArray[0].title);
+        setText(updateArray[0].text);
+        setTags(updateArray[0].tags);
         
     }
     useEffect(() => {
