@@ -25,9 +25,9 @@ class DisplayCase extends React.Component {
             this.state.posts.map((post, index) => {
                 {console.log(this.state.posts)}
                 {console.log(post)}
-                {console.log(post.author)}
+                {console.log(post.authorID)}
                 return(
-                <Post key={index} date={post.date} author={post.author} title={post.title} text={post.text} tags={post.tags} />
+                <Post key={post.authorID} authorID={post.authorID} date={post.date} author={post.author} title={post.title} text={post.text} tags={post.tags} />
                 )
             })
         )

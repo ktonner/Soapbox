@@ -11,11 +11,13 @@ module.exports = {
 				.populate("posts")
 				.then(userData => {
 					console.log("POST", userData);
-					const { _id, username, posts } = userData;
+					const { _id, username, posts, following, followed } = userData;
 					return res.status(200).json({
 						id: _id,
 						username,
 						posts,
+						following,
+						followed,
 						authenticated: true
 					})
 				})

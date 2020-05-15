@@ -1,16 +1,20 @@
 import React, { useContext } from "react";
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import { handleFollow, newFollower } from "../../utils/accountsAPI"
-import PostContext from "../../utils/PostContext"
+import { handleFollow, newFollower, getUser } from "../../utils/accountsAPI"
+
 
 
 const Post = (props) => {
 
-    // const {date, author, title, text, tags} = useContext(PostContext)
-
     const handleClick = (id) => {
-        console.log(id, "Follow")
+        // getUser().then(res=>{
+        //     if(res.following.includes(id)){
+        //         return
+        //         console.log("already followed")
+        //     }
+
+
         handleFollow(id).then(
             data => console.log(data)
         ).catch(err=>{
@@ -23,12 +27,14 @@ const Post = (props) => {
                 console.log(err)
             }
             )
-    }
+        }
+    
+    
 
     return (
                     <Card>
                         <Card.Header className="text-muted">Posted by {props.author} at {props.date}
-                            <Button onClick={() => handleClick((props.author))}>Follow</Button>
+                            <Button onClick={() => handleClick((props.authorID))}>Follow</Button>
                         </Card.Header>
                         <Card.Body>
                             <Card.Title>{props.title}</Card.Title>
