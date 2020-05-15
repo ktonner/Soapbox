@@ -33,7 +33,8 @@ function CreatePost() {
         title,
         text,
         tags,
-        author: user.username
+        author: user.username,
+        authorID: user.id
       }, user.id)
         .then(res =>
           handleClose())
