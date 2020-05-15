@@ -5,13 +5,15 @@ import PostContext from "../../utils/PostContext"
 
 class DisplayCase extends React.Component {
 
-    posts = []
+    state= {
+        posts:[]
+    };
 
-    componentWillMount() {
+    componentDidMount() {
         API.getPosts()
             .then(res => {
                 console.log("This is the data", res)
-                this.posts.push(res.data)
+                this.setState({posts: res.data})
             })
             .catch(err => {
                 console.log(err)
@@ -20,11 +22,12 @@ class DisplayCase extends React.Component {
 
     render() {
         return (
-            (this.posts).map((post) => {
-                {console.log(this.posts)}
+            this.state.posts.map((post, index) => {
+                {console.log(this.state.posts)}
                 {console.log(post)}
+                {console.log(post.author)}
                 return(
-                <Post date={post.date} author={post.author} title={post.title} text={post.text} tags={post.tags} />
+                <Post key={index} date={post.date} author={post.author} title={post.title} text={post.text} tags={post.tags} />
                 )
             })
         )
