@@ -6,7 +6,8 @@ const Post = new Schema({
     author: { type: String, required: true },
     text: String,
     date: { type: Date, default: Date.now },
-    tags: {type: Array}
+    tags: {type: Array},
+    authorID: {String}
 });
 
 
