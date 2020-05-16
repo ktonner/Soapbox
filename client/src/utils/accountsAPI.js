@@ -13,3 +13,6 @@ import axios from "axios";
       return axios.get("/api/users/user/");
     }
 
+  export const getFollowingUsers = () => {
+    return axios.get("/api/users")
+  }
