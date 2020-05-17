@@ -1,42 +1,39 @@
-import React, { Component } from "react"
+import React, { useEffect, useState } from "react"
 import { getUser, getUserFromID } from "../../utils/accountsAPI"
 
-class FollowedList extends React.Component {
+function FollowedList () {
 
-    state = {
-        following: []
-    }
+    const [following, setFollowing] = useState([])
 
-    componentWillMount() {
+    useEffect(()=>{
+        loadList()
+    },[])
+
+    function loadList() {
         getUser().then(res => {
             console.log(res.data.following)
-            const following = res.data.following
-            this.setState({ following: following })
-
+            setFollowing(res.data.following)
         })
-    }
+        .catch(err => console.log(err));
+    };
 
-    createList() {
-        this.state.following.map((account, index) => {
-            getUserFromID(account).then(res => {
-                console.log(res)
-                const followingUser = res.data.username
-                console.log(followingUser)
-                return (
-                    <p key={index}>{followingUser}</p>
-                )
-            })
-        }
+
+
+  return(
+            <ul>
+            {following.map((account, index) => {
+                getUserFromID(account).then(res => {
+                    console.log(res)
+                    const followingUser = res.data.username
+                    console.log(followingUser)
+                    return (
+                        
+                        <li key={index}>{followingUser}</li>
+        )
+                    })})}
+                    </ul>
         )
     }
 
-    render() {
-        return (
-            <div>
-                {this.createList()}
-            </div>
-        )
-    }
-}
 
 export default FollowedList
