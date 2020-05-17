@@ -26,9 +26,9 @@ class DisplayCase extends React.Component {
         
         const filtered = this.state.posts.filter((post) => {
             if (post.tags.includes(event.target.value.toLowerCase())) {
-            return (post.tags.indexOf(event.target.value.toLowerCase()) !== -1);
+                return (post.tags.indexOf(event.target.value.toLowerCase()) !== -1);
             } 
-            return   (this.setState({filterPosts: this.state.posts}))
+            return   (this.setState({filteredPosts: this.state.filteredPosts}))
             
         })
        
