@@ -8,7 +8,9 @@ function LoginForm({ onLogin }) {
 	const passwordRef = useRef();
 
 	return (
-		<Card title="Login with your Username and Password">
+		<div className="row">
+			<div className="col-md-6">
+		<Card title="Login with your Username and Password" >
 			<form
 				ref={formRef}
 				onSubmit={(e) => {
@@ -23,11 +25,13 @@ function LoginForm({ onLogin }) {
 					<input className="form-control" ref={userNameRef} type='text' name="username" placeholder='Enter Username' /><br />
 					<input className="form-control" ref={passwordRef} type='password' name="password" placeholder='Password' /><br />
 					<button className="btn btn-success" type='submit'>
-						Submit
+						Login
 						</button>
 				</div>
 			</form>
 		</Card>
+		</div>
+		</div>
 	)
 }
 
