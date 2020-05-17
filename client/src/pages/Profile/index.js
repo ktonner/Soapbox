@@ -4,6 +4,7 @@ import API from "../../utils/postsAPI"
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Modal from 'react-bootstrap/Modal'
+import FollowedList from "../../components/FollowedList"
 
 
 function Profile() {
@@ -137,7 +138,7 @@ function Profile() {
                 </div>
                 <div className="col-md-6">
                     <h4>List of people you have followed</h4>
-
+                    <FollowedList/>
                 </div>
             </div>
 

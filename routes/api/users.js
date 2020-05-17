@@ -11,17 +11,21 @@ router.route("/register")
 
 router.route("/login")
 
-//Added this to redirect to the login 
-.post(passport.authenticate('local', { failureRedirect: '/login' }),usersController.login);
+  //Added this to redirect to the login 
+  .post(passport.authenticate('local', { failureRedirect: '/login' }), usersController.login);
 //Changed to post route to match the request
 
 router.route("/logout")
-      .post(usersController.logout);
+  .post(usersController.logout);
 
 
 // Matches with "/api/users/:id"
 router.route("/user")
-      .get(usersController.getUser);
+  .get(usersController.getUser);
+
+  router.route("/:id")
+  .get(usersController.getUserFromID)
+
 /* Testing Endpoint */
 router
   .route("/ping")
@@ -29,9 +33,9 @@ router
 
 //Set up follow route
 router.route("/follow/:id")
-  .put(usersController.addFollowing) 
-  
+  .put(usersController.addFollowing)
+
 router.route("/follower/:id")
   .put(usersController.addFollower)
 
-  module.exports = router;
+module.exports = router;
