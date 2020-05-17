@@ -46,7 +46,7 @@ function CreatePost() {
   return (
     <div>
       <div>
-        <Button variant="outline-primary" onClick={handleShow}>Create Post</Button>{' '}
+        <Button style={{color: "black", fontSize: "20px", border: "2px solid rgb(57, 137, 187)"}} variant="outline-primary" onClick={handleShow}>Create Post</Button>{' '}
       </div>
       <>
         <Modal show={show} onHide={() => setShow(false)}>
