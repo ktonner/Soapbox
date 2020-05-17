@@ -85,8 +85,8 @@ function Profile() {
                         <h5 className="card-title">Title: {post.title}</h5>
                         <p className="card-subtitle mb-2 text-muted">#{post.tags}</p>
                         <p className="card-text">Content: {post.text}</p>
-                        <button onClick={() => handleShow(post._id)} className="btn btn-primary">Update</button><span> </span>
-                        <button onClick={() => deletePost(post._id)} className="btn btn-danger">Delete</button>
+                        <button onClick={() => handleShow(post._id)} className="btn" style={{backgroundColor: "rgb(53, 149, 197)", color: "white"}}>Update</button><span> </span>
+                        <button onClick={() => deletePost(post._id)} className="btn" style={{backgroundColor: "rgb(194, 55, 55)", color: "white"}}>Delete</button>
                     </div>
                 </div>
 
@@ -94,10 +94,11 @@ function Profile() {
         ));
     }
     return (
-        <div className="container">
+        <div className="container" style={{backgroundImage: "url('https://www.jakpost.travel/wimages/large/155-1558997_600x250px-beatbox-hd-wallpapers-84-triangle-abstract-art.jpg')", paddingBottom: "100%"}}>
             <div className="row">
                 <div className="col-md-6">
-                    <h4>List of your posts</h4>
+                    <br/>
+                    <h4 style={{color: "rgb(189, 219, 231)", fontWeight: "bold"}}>List of your posts</h4>
                     <br />
                     {displayPost()}
                     {console.log(updateArray)}
@@ -136,7 +137,8 @@ function Profile() {
                     
                 </div>
                 <div className="col-md-6">
-                    <h4>List of people you have followed</h4>
+                    <br/>
+                    <h4 style={{color: "rgb(189, 219, 231)", fontWeight: "bold"}}>List of people you have followed</h4>
 
                 </div>
             </div>
