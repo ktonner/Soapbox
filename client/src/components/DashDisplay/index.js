@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState, Component } from 'react'
-import API from "../../utils/postsAPI"
+import {getUser, getUserFromID} from "../../utils/accountsAPI"
 import Post from "../Post/index"
 
 class DashDisplay extends React.Component {
@@ -11,9 +11,12 @@ class DashDisplay extends React.Component {
     };
 
     componentDidMount() {
-       API.getUser().then(res=>{
-           console.log(res)
-           console.log(res.id)
+       getUser().then(res=>{
+           res.data.following.map(account=>{
+               getUserFromID(account).then(res=>{
+                   console.log(res.data)
+               })
+           })
        })
     }
 
