@@ -47,6 +47,7 @@ function Nav() {
         <ul className="navbar-nav ml-auto">
           <li className="nav-item ">
             <Link style={buttonStyle} className="btn btn-secondary" to="/public">Public Page</Link>
+            <Link style={buttonStyle} className="btn btn-danger" to="/search">Search Page</Link>
             <Link style={buttonStyle} className="btn btn-danger" to="/protected">Dashboard</Link>
 
             <Link style={buttonStyle} className="btn btn-danger" to="/profile">Profile</Link>

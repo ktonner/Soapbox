@@ -43,7 +43,6 @@ function ProtectedRoute() {
 				</div>
 			
 			<CreatePost/>
-			<DisplayCase/>
 		</div>
 	)
 

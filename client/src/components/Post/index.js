@@ -31,8 +31,9 @@ const Post = (props) => {
     
 
     return (
+        <div>
                     <Card>
-                        <Card.Header className="text-muted">Posted by {props.author} at {props.date}
+                        <Card.Header className="text-muted">Posted by {props.author} at {props.date}<span> </span>
                             <Button onClick={() => handleClick((props.authorID))}>Follow</Button>
                         </Card.Header>
                         <Card.Body>
@@ -52,6 +53,8 @@ const Post = (props) => {
                             }
                         </Card.Footer>
                     </Card>
+                    <br/>
+        </div>
                 )}
 
 export default Post

@@ -25,20 +25,20 @@ class DisplayCase extends React.Component {
         this.setState({ search: event.target.value });
         
         const filtered = this.state.posts.filter((post) => {
-            if (post.tags.includes(event.target.value.toLowerCase())) {
-                return (post.tags.indexOf(event.target.value.toLowerCase()) !== -1);
-            } 
-            return   (this.setState({filteredPosts: this.state.filteredPosts}))
-            
+           
+            return (post.tags.join("").indexOf(event.target.value.toLowerCase()) !== -1);
+             
         })
-       
+
         this.setState({ filteredPosts: filtered })
     }
 
     render() {
         return (
-            <div>
-            <input type="text" placeholder="Search by #" onChange={this.handleInput} style={{float: "right", border: "2px solid rgb(57, 137, 187)", fontSize: "20px"}} />
+            <div style={{backgroundColor: "lightblue"}}>
+            <br/>
+            <h4 style={{textAlign: "center"}}>Search posts by hashtag#</h4>
+            <input type="text" placeholder="Enter # name" onChange={this.handleInput} style={{border: "2px solid rgb(57, 137, 187)", fontSize: "20px", marginLeft: "40%"}} />
             <br/><br/>
             {this.state.filteredPosts.map((post, index) => {
                 {console.log(this.state.posts)}
