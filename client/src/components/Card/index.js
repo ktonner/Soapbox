@@ -2,7 +2,8 @@ import React from "react";
 
 function Card({ icon, title, children }) {
   return (
-    <div className="card mt-4">
+    
+    <div className="card mt-5" style={{backgroundColor: "rgb(207, 217, 236)"}}>
       <div className="card-header">
         <h3>
           <strong>
@@ -12,6 +13,7 @@ function Card({ icon, title, children }) {
       </div>
       <div className="card-body">{children}</div>
     </div>
+  
   );
 }
 

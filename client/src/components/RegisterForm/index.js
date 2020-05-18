@@ -9,6 +9,8 @@ function RegisterForm({ onRegister }) {
 	const passwordRef = useRef();
 
 	return (
+		<div className="row">
+			<div className="col-md-6">
 		<Card title="Register a New User">
 			<form
 				ref={formRef}
@@ -27,6 +29,8 @@ function RegisterForm({ onRegister }) {
 				</div>
 			</form>
 		</Card>
+		</div>
+		</div>
 	)
 }
 

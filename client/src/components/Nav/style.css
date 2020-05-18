@@ -1,3 +1,7 @@
 .navbar {
   border-radius: 0;
+  background-color: rgb(57, 137, 187);
+}
+.btn {
+  border-radius: 20px;
 }

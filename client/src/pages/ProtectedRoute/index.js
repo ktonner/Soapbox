@@ -39,11 +39,9 @@ function ProtectedRoute() {
 	return (
 		<div className="container">
 			<div className="alert alert-success" role="alert">
-				Success, You are logged in
+				Welcome! You are logged in.
 				</div>
-			<Card title="Welcome.">
-				<p>You are logged in.</p>
-			</Card>
+			
 			<CreatePost/>
 			<DisplayCase/>
 		</div>
