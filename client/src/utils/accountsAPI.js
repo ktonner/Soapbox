@@ -13,6 +13,12 @@ import axios from "axios";
       return axios.get("/api/users/user/");
     }
 
+
     export const getUserFromID = (id) => {
       return axios.get("/api/users/" + id)
     }
+
+  export const getFollowingUsers = () => {
+    return axios.get("/api/users")
+  }
+

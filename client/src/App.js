@@ -15,6 +15,7 @@ import ProtectedRoute from "./pages/ProtectedRoute";
 import Profile from "./pages/Profile";
 import './App.css';
 import { UserProvider } from "./utils/UserContext";
+import AuthPage from "./components/AuthPage";
 
 //Now we have all the stuff we need .. let's render some components with the Router
 const AuthExample = () => (
@@ -24,6 +25,7 @@ const AuthExample = () => (
 				<Nav className="App-header" />
 				<Container>
 					<Switch>
+						<Route exact path="/" component={AuthPage} />
 						<Route path="/public" component={PublicRoute} />
 						<Route path="/login" component={Login} />
 						<Route path="/register" component={Register} />

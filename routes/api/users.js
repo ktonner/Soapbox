@@ -38,4 +38,8 @@ router.route("/follow/:id")
 router.route("/follower/:id")
   .put(usersController.addFollower)
 
-module.exports = router;
+//Get users that a specific user is following
+router.route("/users")
+      .get(usersController.getFollowingUsers)
+
+  module.exports = router;
