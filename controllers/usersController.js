@@ -28,6 +28,23 @@ module.exports = {
 			});
 		}
 	},
+	
+	getUserFromID: function (req, res) {
+		Account.findOne({ _id: req.params.id })
+			.then(userData => {
+				console.log("POST", userData);
+				const { _id, username, posts, following, followed } = userData;
+				return res.status(200).json({
+					id: _id,
+					username,
+					posts,
+					following,
+					followed,
+					authenticated: true
+				})
+			})
+	},
+
 	register: function (req, res, next) {
 		console.log('/register handler', req.body);
 		Account.register(new Account({ username: req.body.username }), req.body.password, (err, account) => {
