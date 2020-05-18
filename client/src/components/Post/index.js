@@ -8,13 +8,11 @@ import { handleFollow, newFollower, getUser } from "../../utils/accountsAPI"
 const Post = (props) => {
 
     const handleClick = (id) => {
-        // getUser().then(res=>{
-        //     if(res.following.includes(id)){
-        //         return
-        //         console.log("already followed")
-        //     }
-
-
+        getUser().then(res=>{
+            if(res.data.following.includes(id)){
+                console.log("already following")
+            }
+            else{
         handleFollow(id).then(
             data => console.log(data)
         ).catch(err=>{
@@ -27,7 +25,8 @@ const Post = (props) => {
                 console.log(err)
             }
             )
-        }
+        }})
+    }
     
     
 
