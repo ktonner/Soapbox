@@ -16,3 +16,7 @@ import axios from "axios";
   export const getFollowingUsers = () => {
     return axios.get("/api/users")
   }
+
+  export const getUserFromID = (id) => {
+    return axios.get("/api/users/" + id)
+  }
