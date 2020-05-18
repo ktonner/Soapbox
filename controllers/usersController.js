@@ -105,11 +105,11 @@ module.exports = {
 		}
 	},
 	// Method that will add the current user's reference to the followed user's followers array
-	addFollower: async function (req, res) {
-	}  catch (err) {
-		return res.status(400).json({error: errorHandler.getErrorMessage(err)})
-	}
-},
+// 	addFollower: async function (req, res) {
+// 	}  catch (err) {
+// 		return res.status(400).json({error: errorHandler.getErrorMessage(err)})
+// 	}
+// },
 	// Method that gets all the users that a specific user is following
 	getFollowingUsers: async function(req,res) {
 		const { user } = req.session.passport
