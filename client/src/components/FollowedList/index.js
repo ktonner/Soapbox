@@ -5,6 +5,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 function FollowedList() {
 
     const [followings, setFollowing] = useState([])
+    const {isUpdated, setIsUpdated} = useState(false)
 
     useEffect(() => {
         loadList()
@@ -16,9 +17,10 @@ function FollowedList() {
             res.data.following.map((account) => {
                 getUserFromID(account)
                 .then(res => {
-                    followings.push(res.data.username)
+                    setFollowing(followings=>[...followings, res.data.username])
                 })
             })
+            //setIsUpdated(true)
             console.log(followings)
         })
             .catch(err => console.log(err));
@@ -28,8 +30,6 @@ function FollowedList() {
 
     return (
         <div>
-            <h4>test</h4>
-            <h4>{followings[0]}</h4>
             <ListGroup>
                 {followings.map(account => {
                     return (
