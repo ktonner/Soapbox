@@ -38,7 +38,9 @@ class DisplayCase extends React.Component {
     render() {
         return (
             <div>
-            <input type="text" placeholder="Search by #" onChange={this.handleInput} style={{border: "2px solid rgb(57, 137, 187)", fontSize: "20px"}} />
+            <br/>
+            <h4>Search posts by hashtag#</h4>
+            <input type="text" placeholder="Enter # name" onChange={this.handleInput} style={{border: "2px solid rgb(57, 137, 187)", fontSize: "20px"}} />
             <br/><br/>
             {this.state.filteredPosts.map((post, index) => {
                 {console.log(this.state.posts)}
