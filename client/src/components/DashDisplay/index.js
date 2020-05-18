@@ -14,7 +14,7 @@ class DashDisplay extends React.Component {
        getUser().then(res=>{
            res.data.following.map(account=>{
                getUserFromID(account).then(res=>{
-                   console.log(res.data)
+                   console.log(res.data.posts)
                })
            })
        })

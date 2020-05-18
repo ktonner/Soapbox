@@ -27,6 +27,10 @@ router
   .route("/ping")
   .get(usersController.test);
 
+  //get specific user by id
+  router.route("/:id")
+  .get(usersController.getUserFromID)
+
 //Set up follow route
 router.route("/follow/:id")
   .put(usersController.addFollowing) 
