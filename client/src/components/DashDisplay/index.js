@@ -6,11 +6,13 @@ import API from "../../utils/postsAPI"
 class DashDisplay extends React.Component {
 
     state = {
-        posts: []
+        posts: [],
+        postData: []
     };
 
     componentDidMount() {
         const postsArray = []
+        const postDataArray = []
         getUser().then(res => {
             res.data.following.map(account => {
                 getUserFromID(account).then(res => {
@@ -18,36 +20,27 @@ class DashDisplay extends React.Component {
                         postsArray.push(post)
                     })
                     this.setState({ posts: postsArray })
-                    console.log(this.state.posts)
-
+                    this.state.posts.map(post=>{
+                    API.getPost(post).then(res => {
+                        postDataArray.push(res.data)
+                    })
+                    this.setState({postData: postDataArray})
+                    console.log(this.state.postData)
                 })
             })
-        })
-        this.state.posts.map(post => {
-            API.getPost(post).then(res=>{
-            console.log(res)
-            return (
-                <Post key={res.authorID} authorID={res.authorID} date={res.date} author={res.author} title={res.title} text={res.text} tags={res.tags} />
-              )})
-        })
-    }
+        })})}
+    
 
-    createPosts() {
-        this.state.posts.map(post => {
-        API.getPost(post).then(res=>{
-        console.log(res)
-        return (
-            <Post key={res.authorID} authorID={res.authorID} date={res.date} author={res.author} title={res.title} text={res.text} tags={res.tags} />
-          )})
-    })
-
-    }
 
     render() {
-
         return (
             <div>
-           
+                {this.state.postData.map(post => {
+                        return (
+                            <Post key={post.authorID} authorID={post.authorID} date={post.date} author={post.author} title={post.title} text={post.text} tags={post.tags} />
+                        )
+                    })
+                }
             </div>
         )
     }
