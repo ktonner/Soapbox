@@ -25,23 +25,11 @@ class DisplayCase extends React.Component {
         this.setState({ search: event.target.value });
         
         const filtered = this.state.posts.filter((post) => {
-            if (post.tags.join("").indexOf(event.target.value.toLowerCase()) !== -1) {
-                console.log("filtered post tags", post.tags)
-                return (post.tags.indexOf(event.target.value.toLowerCase()) !== -1);
-            } 
-            return   (this.setState({filteredPosts: this.state.filteredPosts}))
-            
+           
+            return (post.tags.join("").indexOf(event.target.value.toLowerCase()) !== -1);
+             
         })
-        // const filtered = this.state.posts.filter((post) => {
-        //     if (post.tags.join("").indexOf(event.target.value.toLowerCase()) !== -1) {
-        //         console.log("filtered post tags", post.tags)
-        //         const fil = post.tags.find(element => element == event.target.value.toLowerCase())
-        //         return (fil.indexOf(event.target.value.toLowerCase()) !== -1);
-        //     } 
-        //     return   (this.setState({filteredPosts: this.state.filteredPosts}))
-            
-        // })
-        
+
         this.setState({ filteredPosts: filtered })
     }
 
