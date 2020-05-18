@@ -31,9 +31,9 @@ function FollowedList() {
     return (
         <div>
             <ListGroup>
-                {followings.map(account => {
+                {followings.map((account,index) => {
                     return (
-                        <ListGroup.Item><p>username: </p>{account}</ListGroup.Item>
+                        <ListGroup.Item key={index}>username: {account}</ListGroup.Item>
                     )
                 })}
             </ListGroup>
