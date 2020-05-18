@@ -30,10 +30,11 @@ function FollowedList() {
 
     return (
         <div>
+            <br/>
             <ListGroup>
                 {followings.map((account,index) => {
                     return (
-                        <ListGroup.Item key={index}>username: {account}</ListGroup.Item>
+                        <ListGroup.Item key={index}>Username: {account}</ListGroup.Item>
                     )
                 })}
             </ListGroup>
