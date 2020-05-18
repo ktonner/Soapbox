@@ -11,7 +11,6 @@ function FollowedList() {
     }, [])
 
     function loadList() {
-        const array = []
         getUser().then(res => {
             console.log(res.data.following)
             res.data.following.map((account) => {
@@ -30,10 +29,11 @@ function FollowedList() {
     return (
         <div>
             <h4>test</h4>
+            <h4>{followings[0]}</h4>
             <ListGroup>
                 {followings.map(account => {
                     return (
-                        <ListGroup.Item>{account}</ListGroup.Item>
+                        <ListGroup.Item><p>username: </p>{account}</ListGroup.Item>
                     )
                 })}
             </ListGroup>
