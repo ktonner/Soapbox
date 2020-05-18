@@ -25,22 +25,32 @@ class DisplayCase extends React.Component {
         this.setState({ search: event.target.value });
         
         const filtered = this.state.posts.filter((post) => {
-            if (post.tags.includes(event.target.value.toLowerCase())) {
+            if (post.tags.join("").indexOf(event.target.value.toLowerCase()) !== -1) {
+                console.log("filtered post tags", post.tags)
                 return (post.tags.indexOf(event.target.value.toLowerCase()) !== -1);
             } 
             return   (this.setState({filteredPosts: this.state.filteredPosts}))
             
         })
-       
+        // const filtered = this.state.posts.filter((post) => {
+        //     if (post.tags.join("").indexOf(event.target.value.toLowerCase()) !== -1) {
+        //         console.log("filtered post tags", post.tags)
+        //         const fil = post.tags.find(element => element == event.target.value.toLowerCase())
+        //         return (fil.indexOf(event.target.value.toLowerCase()) !== -1);
+        //     } 
+        //     return   (this.setState({filteredPosts: this.state.filteredPosts}))
+            
+        // })
+        
         this.setState({ filteredPosts: filtered })
     }
 
     render() {
         return (
-            <div>
+            <div style={{backgroundColor: "lightblue"}}>
             <br/>
-            <h4>Search posts by hashtag#</h4>
-            <input type="text" placeholder="Enter # name" onChange={this.handleInput} style={{border: "2px solid rgb(57, 137, 187)", fontSize: "20px"}} />
+            <h4 style={{textAlign: "center"}}>Search posts by hashtag#</h4>
+            <input type="text" placeholder="Enter # name" onChange={this.handleInput} style={{border: "2px solid rgb(57, 137, 187)", fontSize: "20px", marginLeft: "40%"}} />
             <br/><br/>
             {this.state.filteredPosts.map((post, index) => {
                 {console.log(this.state.posts)}

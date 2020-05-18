@@ -79,7 +79,7 @@ function Profile() {
     const displayPost = () => {
         //if (!user.posts.length) return null;
         return user.posts.map((post, index) => (
-            
+            <div>
                 <div key={index} className="card">
                     <div className="card-body">
                         <h5 className="card-title">Title: {post.title}</h5>
@@ -87,9 +87,11 @@ function Profile() {
                         <p className="card-text">Content: {post.text}</p>
                         <button onClick={() => handleShow(post._id)} className="btn" style={{backgroundColor: "rgb(53, 149, 197)", color: "white"}}>Update</button><span> </span>
                         <button onClick={() => deletePost(post._id)} className="btn" style={{backgroundColor: "rgb(194, 55, 55)", color: "white"}}>Delete</button>
+                        
                     </div>
                 </div>
-
+                <br/>
+            </div>
         
         ));
     }
