@@ -20,23 +20,22 @@ class DashDisplay extends React.Component {
                     })
                     this.setState({ posts: postsArray })
                     console.log(this.state.posts)
+                    this.getPostData()
                 })
             })
-        })
+        }
+        )
     }
 
     getPostData = () => {
+        const postData = []
         console.log(this.state.posts)
         return(
         this.state.posts.map(post => {
             API.getPost(post).then(res => {
                 console.log(res.data)
-                return (
-                    <div>
-                        <Post key={res.data.authorID} authorID={res.data.authorID} date={res.data.date} author={res.data.author} title={res.data.title} text={res.data.text} tags={res.data.tags} />
-                        <h3>test</h3>
-                    </div>
-                )
+                postData.push(res.data)
+                this.setState({postData: postData})
             }
             )
         }))
@@ -44,11 +43,14 @@ class DashDisplay extends React.Component {
 
     render() {
         return (
-            <div>
-                {this.getPostData()}
-            </div>
-
-        )
+                <div>
+                    {this.state.postData.map(post=>(
+                    <div>
+                    <Post key={post.authorID} authorID={post.authorID} date={post.date} author={post.author} title={post.title} text={post.text} tags={post.tags} />
+                    </div>
+                    ))}
+                </div>
+            )
     }
 }
 
