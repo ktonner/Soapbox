@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { handleFollow, newFollower, getUser } from "../../utils/accountsAPI"
@@ -7,6 +7,9 @@ import { UserContext } from "../../utils/UserContext";
 
 const Post = (props) => {
     const [user, dispatch] = useContext(UserContext);
+    const [disabled, setDisabled] = useState(false)
+    const [btn, setBtn] = useState("Follow")
+
 
     const handleClick = (id) => {
         getUser().then(res=>{
@@ -29,14 +32,19 @@ const Post = (props) => {
         }})
     }
     
-    
+    getUser(props.authorID).then(res=>{
+        if(res.data.following.includes(props.authorID)){
+            console.log("already following")
+            setDisabled(true)
+            setBtn("Followed")
+        }})
 
     return (
         <div>
                     <Card>
                         <Card.Header className="text-muted">Posted by {props.author} at {props.date}<span> </span>
                         {user.id  === props.authorID ? null :
-                            <Button onClick={() => handleClick((props.authorID))}>Follow</Button>}
+                            <Button onClick={() => handleClick((props.authorID))} disabled={disabled}>{btn}</Button>}
                         </Card.Header>
                         <Card.Body>
                             <Card.Title>{props.title}</Card.Title>
