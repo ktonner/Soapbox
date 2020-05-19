@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { handleFollow, newFollower, getUser } from "../../utils/accountsAPI"
-
+import { UserContext } from "../../utils/UserContext";
 
 
 const Post = (props) => {
+    const [user, dispatch] = useContext(UserContext);
 
     const handleClick = (id) => {
         getUser().then(res=>{
@@ -34,7 +35,8 @@ const Post = (props) => {
         <div>
                     <Card>
                         <Card.Header className="text-muted">Posted by {props.author} at {props.date}<span> </span>
-                            <Button onClick={() => handleClick((props.authorID))}>Follow</Button>
+                        {user.id  === props.authorID ? null :
+                            <Button onClick={() => handleClick((props.authorID))}>Follow</Button>}
                         </Card.Header>
                         <Card.Body>
                             <Card.Title>{props.title}</Card.Title>
