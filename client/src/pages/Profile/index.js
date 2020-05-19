@@ -5,13 +5,12 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Modal from 'react-bootstrap/Modal'
 import FollowedList from "../../components/FollowedList"
-import {useHistory} from "react-router-dom"
 
 function Profile() {
     const [user, dispatch] = useContext(UserContext);
     const [deleted, setDeleted] = useState(false)
     const [updated, setUpdated] = useState(false)
-    const history = useHistory()
+    
     const [title, setTitle] = useState("")
     const [text, setText] = useState("")
     const [tags, setTags] = useState("")
