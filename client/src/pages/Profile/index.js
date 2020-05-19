@@ -78,7 +78,6 @@ function Profile() {
     }
 
     const displayPost = () => {
-        //if (!user.posts.length) return null;
         return user.posts.map((post, index) => (
             <div>
                 <div key={index} className="card">
