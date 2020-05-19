@@ -28,13 +28,16 @@ class DashDisplay extends React.Component {
                     console.log(this.state.postData)
                 })
             })
-        })})}
+        })})
+    }
     
 
 
     render() {
         return (
             <div>
+                
+                {console.log(this.state.postData)}
                 {this.state.postData.map(post => {
                         return (
                             <Post key={post.authorID} authorID={post.authorID} date={post.date} author={post.author} title={post.title} text={post.text} tags={post.tags} />
