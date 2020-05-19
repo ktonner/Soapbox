@@ -25,8 +25,8 @@ class DashDisplay extends React.Component {
         this.setState({ search: event.target.value });
         
         const filtered = this.state.posts.filter((post) => {
-           
-            return (post.tags.join("").indexOf(event.target.value.toLowerCase()) !== -1);
+            
+           return (post.tags.join("").indexOf(event.target.value.toLowerCase()) !== -1);
              
         })
 
