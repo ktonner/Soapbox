@@ -3,7 +3,7 @@ import API from "../../utils/postsAPI"
 import Post from "../Post/index"
 import PostContext from "../../utils/PostContext"
 
-class DisplayCase extends React.Component {
+class DashDisplay extends React.Component {
 
     state= {
         search: "",
@@ -54,5 +54,5 @@ class DisplayCase extends React.Component {
     }
 }
 
-export default DisplayCase
+export default DashDisplay
 

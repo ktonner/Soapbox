@@ -4,6 +4,7 @@ import { UserContext } from "../../utils/UserContext";
 import CreatePost from "../../components/CreatePostBtn/index"
 import Post from "../../components/Post/index"
 import DisplayCase from "../../components/DisplayCase/index"
+import DashDisplay from "../../components/DashDisplay/index"
 
 /* This is a very simple component.. it probably doesn't need to be a smart component at this point but you never know what's goingto happen in the future */
 
@@ -43,6 +44,9 @@ function ProtectedRoute() {
 				</div>
 			
 			<CreatePost/>
+
+			<DashDisplay/>
+
 		</div>
 	)
 

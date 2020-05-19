@@ -22,3 +22,8 @@ import axios from "axios";
     return axios.get("/api/users")
   }
 
+
+  export const getUserFromID = (id) => {
+    return axios.get("/api/users/" + id)
+  }
+
