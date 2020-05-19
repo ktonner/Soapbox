@@ -12,7 +12,6 @@ class DashDisplay extends React.Component {
 
     componentDidMount() {
         const postsArray = []
-        const postDataArray = []
         getUser().then(res => {
             res.data.following.map(account => {
                 getUserFromID(account).then(res => {
@@ -20,31 +19,35 @@ class DashDisplay extends React.Component {
                         postsArray.push(post)
                     })
                     this.setState({ posts: postsArray })
-                    this.state.posts.map(post=>{
-                    API.getPost(post).then(res => {
-                        postDataArray.push(res.data)
-                    })
-                    this.setState({postData: postDataArray})
-                    console.log(this.state.postData)
+                    console.log(this.state.posts)
                 })
             })
-        })})
+        })
     }
-    
 
+    getPostData = () => {
+        console.log(this.state.posts)
+        return(
+        this.state.posts.map(post => {
+            API.getPost(post).then(res => {
+                console.log(res.data)
+                return (
+                    <div>
+                        <Post key={res.data.authorID} authorID={res.data.authorID} date={res.data.date} author={res.data.author} title={res.data.title} text={res.data.text} tags={res.data.tags} />
+                        <h3>test</h3>
+                    </div>
+                )
+            }
+            )
+        }))
+    }
 
     render() {
         return (
             <div>
-                
-                {console.log(this.state.postData)}
-                {this.state.postData.map(post => {
-                        return (
-                            <Post key={post.authorID} authorID={post.authorID} date={post.date} author={post.author} title={post.title} text={post.text} tags={post.tags} />
-                        )
-                    })
-                }
+                {this.getPostData()}
             </div>
+
         )
     }
 }
