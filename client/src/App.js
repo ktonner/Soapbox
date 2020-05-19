@@ -26,10 +26,10 @@ const AuthExample = () => (
 				<Container>
 					<Switch>
 						<Route exact path="/" component={AuthPage} />
-						<Route path="/public" component={PublicRoute} />
-						<Route path="/login" component={Login} />
-						<Route path="/register" component={Register} />
-						<PrivateRoute path="/search" component={Search} />
+						<Route exact path="/public" component={PublicRoute} />
+						<Route exact path="/login" component={Login} />
+						<Route exact path="/register" component={Register} />
+						<PrivateRoute exact path="/search" component={Search} />
 						<PrivateRoute exact path="/protected" component={ProtectedRoute} />
 						<PrivateRoute exact path="/profile" component={Profile} />
 						{/* <Route component={NoMatch} /> */}
