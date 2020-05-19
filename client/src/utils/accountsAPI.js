@@ -23,7 +23,3 @@ import axios from "axios";
   }
 
 
-  export const getUserFromID = (id) => {
-    return axios.get("/api/users/" + id)
-  }
-
