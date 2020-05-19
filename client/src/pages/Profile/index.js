@@ -4,6 +4,7 @@ import API from "../../utils/postsAPI"
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Modal from 'react-bootstrap/Modal'
+import FollowedList from "../../components/FollowedList"
 
 
 function Profile() {
@@ -77,9 +78,8 @@ function Profile() {
     }
 
     const displayPost = () => {
-        //if (!user.posts.length) return null;
         return user.posts.map((post, index) => (
-            
+            <div>
                 <div key={index} className="card">
                     <div className="card-body">
                         <h5 className="card-title">Title: {post.title}</h5>
@@ -87,9 +87,11 @@ function Profile() {
                         <p className="card-text">Content: {post.text}</p>
                         <button onClick={() => handleShow(post._id)} className="btn" style={{backgroundColor: "rgb(53, 149, 197)", color: "white"}}>Update</button><span> </span>
                         <button onClick={() => deletePost(post._id)} className="btn" style={{backgroundColor: "rgb(194, 55, 55)", color: "white"}}>Delete</button>
+                        
                     </div>
                 </div>
-
+                <br/>
+            </div>
         
         ));
     }
@@ -137,9 +139,10 @@ function Profile() {
                     
                 </div>
                 <div className="col-md-6">
+
                     <br/>
                     <h4 style={{color: "rgb(189, 219, 231)", fontWeight: "bold"}}>List of people you have followed</h4>
-
+                    <FollowedList/>
                 </div>
             </div>
 

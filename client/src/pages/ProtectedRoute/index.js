@@ -44,8 +44,9 @@ function ProtectedRoute() {
 				</div>
 			
 			<CreatePost/>
+
 			<DashDisplay/>
-			{/* <DisplayCase/> */}
+
 		</div>
 	)
 

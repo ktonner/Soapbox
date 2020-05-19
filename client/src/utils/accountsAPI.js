@@ -5,7 +5,7 @@ import axios from "axios";
       }
       
     export const newFollower = (id) => {
-      return axios.put("api/users/follower/" + id)
+      return axios.put("/api/users/follower/" + id)
     }
 
     //get current user
@@ -13,10 +13,17 @@ import axios from "axios";
       return axios.get("/api/users/user/");
     }
 
+
+    export const getUserFromID = (id) => {
+      return axios.get("/api/users/" + id)
+    }
+
   export const getFollowingUsers = () => {
     return axios.get("/api/users")
   }
 
+
   export const getUserFromID = (id) => {
     return axios.get("/api/users/" + id)
   }
+

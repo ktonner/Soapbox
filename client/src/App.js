@@ -16,7 +16,7 @@ import Profile from "./pages/Profile";
 import './App.css';
 import { UserProvider } from "./utils/UserContext";
 import AuthPage from "./components/AuthPage";
-
+import Search from "./pages/SearchPage";
 //Now we have all the stuff we need .. let's render some components with the Router
 const AuthExample = () => (
 	<UserProvider>
@@ -29,6 +29,7 @@ const AuthExample = () => (
 						<Route path="/public" component={PublicRoute} />
 						<Route path="/login" component={Login} />
 						<Route path="/register" component={Register} />
+						<PrivateRoute path="/search" component={Search} />
 						<PrivateRoute exact path="/protected" component={ProtectedRoute} />
 						<PrivateRoute exact path="/profile" component={Profile} />
 						{/* <Route component={NoMatch} /> */}
