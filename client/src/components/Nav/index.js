@@ -6,7 +6,8 @@ import AuthButton from "../AuthButton";
 import { UserContext } from "../../utils/UserContext";
 //I want to add some basic inline styling here, even though we are bringing in styles
 const buttonStyle = {
-  marginRight: 10
+  marginRight: 10,
+  opacity: .6
 };
 
 function Nav() {
@@ -38,22 +39,22 @@ function Nav() {
 
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark mb-2">
+    <nav className="navbar navbar-expand-lg mb-2">
       <Link className="navbar-brand" to="/">
-        Auth Plate
+        soapbox
         </Link>
       <div className={`${open ? "" : "collapse "}navbar-collapse`} id="navbarNav">
         {user.username ? <span className="userText text-white ml-3 pt-1" to="#">Hi {user.username} !</span> : ""}
         <ul className="navbar-nav ml-auto">
           <li className="nav-item ">
             <Link style={buttonStyle} className="btn btn-secondary" to="/public">About</Link>
-            <Link style={buttonStyle} className="btn btn-danger" to="/search">Search Page</Link>
-            <Link style={buttonStyle} className="btn btn-danger" to="/protected">Dashboard</Link>
+            <Link style={buttonStyle} className="btn btn-primary" to="/search">Search Page</Link>
+            <Link style={buttonStyle} className="btn btn-primary" to="/protected">Dashboard</Link>
 
-            <Link style={buttonStyle} className="btn btn-danger" to="/profile">Profile</Link>
+            <Link style={buttonStyle} className="btn btn-primary" to="/profile">Profile</Link>
             
             {user.username ? "" :
-              <Link style={buttonStyle} className="btn btn-warning" to="/register">Register a New User</Link>
+              <Link style={buttonStyle} className="btn btn-success" to="/register">Register a New User</Link>
             }
 
             <AuthButton />

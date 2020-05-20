@@ -18,10 +18,12 @@ import { UserProvider } from "./utils/UserContext";
 import AuthPage from "./components/AuthPage";
 import Search from "./pages/SearchPage";
 //Now we have all the stuff we need .. let's render some components with the Router
+
 const AuthExample = () => (
 	<UserProvider>
 		<Router>
 			<div>
+			<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet"></link>
 				<Nav className="App-header" />
 				<Container>
 					<Switch>
