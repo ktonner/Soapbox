@@ -5,6 +5,9 @@ import CreatePost from "../../components/CreatePostBtn/index"
 import Post from "../../components/Post/index"
 import DisplayCase from "../../components/DisplayCase/index"
 import DashDisplay from "../../components/DashDisplay/index"
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 /* This is a very simple component.. it probably doesn't need to be a smart component at this point but you never know what's goingto happen in the future */
 
@@ -38,16 +41,21 @@ function ProtectedRoute() {
 
 
 	return (
-		<div className="container">
+		<Container>
 			<div className="alert alert-success" role="alert">
 				Welcome! You are logged in.
 				</div>
-			
+			<row>
 			<CreatePost/>
-
+			</row>
+			<br></br>
+			<row>
+			<Col xs={6} className="mx-auto">
 			<DashDisplay/>
+			</Col>
+			</row>
 
-		</div>
+		</Container>
 	)
 
 }

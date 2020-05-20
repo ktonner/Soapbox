@@ -41,7 +41,7 @@ const Post = (props) => {
 
     return (
         <div>
-                    <Card>
+                    <Card className="m-1">
                         <Card.Header className="text-muted">Posted by {props.author} at {props.date}<span> </span>
                         {user.id  === props.authorID ? null :
                             <Button onClick={() => handleClick((props.authorID))} disabled={disabled}>{btn}</Button>}
