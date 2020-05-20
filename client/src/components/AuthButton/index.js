@@ -28,6 +28,7 @@ const AuthButton = () => {
 		) : (
 				<Link
 					className="btn btn-success"
+					style={{opacity:.6}}
 					to="/login"
 				>Login
 				</Link>
