@@ -1,5 +1,7 @@
 import React, { useRef } from 'react'
 import Card from "../Card"
+import './style.css'
+import Col from 'react-bootstrap/Col'
 
 function LoginForm({ onLogin }) {
 
@@ -9,8 +11,8 @@ function LoginForm({ onLogin }) {
 
 	return (
 		<div className="row">
-			<div className="col-md-6">
-		<Card title="Login with your Username and Password" >
+			<div className="col-md-6 mx-auto mt-5">
+		<h2 style={{color:"white", textAlign:"center", padding:"8px"}} className="mx-auto">Login to Soapbox</h2>
 			<form
 				ref={formRef}
 				onSubmit={(e) => {
@@ -29,7 +31,6 @@ function LoginForm({ onLogin }) {
 						</button>
 				</div>
 			</form>
-		</Card>
 		</div>
 		</div>
 	)
