@@ -12,16 +12,11 @@ function CreatePost() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [posts, Posts] = useState([])
   const [title, setTitle] = useState("")
   const [text, setText] = useState("")
   const [tags, setTags] = useState("")
 
 
-
-  function handleImage(){
-    console.log("Image")
-  }
 
 
   function handleFormSubmit(event) {
@@ -46,7 +41,7 @@ function CreatePost() {
   return (
     <div>
       <div>
-        <Button style={{color: "black", fontSize: "20px", border: "2px solid rgb(57, 137, 187)"}} variant="outline-primary" onClick={handleShow}>Create Post</Button>{' '}
+        <Button style={{color: "white", fontSize: "20px", border: "2px solid rgb(57, 137, 187)"}} className="btn btn-primary mb-3" onClick={handleShow}>Create Post</Button>{' '}
       </div>
       <>
         <Modal show={show} onHide={() => setShow(false)}>
