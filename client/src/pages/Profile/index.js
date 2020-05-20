@@ -101,6 +101,13 @@ function Profile() {
     return (
         <div className="container" style={{backgroundImage: "url('https://www.jakpost.travel/wimages/large/155-1558997_600x250px-beatbox-hd-wallpapers-84-triangle-abstract-art.jpg')", paddingBottom: "100%"}}>
             <div className="row">
+                <div className="col-md-12">
+                <br/>
+                <h4 style={{color: "rgb(189, 219, 231)", fontWeight: "bold", textAlign: "center", paddingBottom: "20px" ,borderBottom: "2px solid white"}}>You have {user.followed.length} follower(s)</h4>
+                </div>
+            </div>
+        
+            <div className="row">
                 <div className="col-md-6">
                     <br/>
                     <h4 style={{color: "rgb(189, 219, 231)", fontWeight: "bold"}}>List of your posts</h4>
@@ -144,7 +151,8 @@ function Profile() {
                 <div className="col-md-6">
 
                     <br/>
-                    <h4 style={{color: "rgb(189, 219, 231)", fontWeight: "bold"}}>List of people you have followed</h4>
+                    
+                    <h4 style={{color: "rgb(189, 219, 231)", fontWeight: "bold"}}>List of members you have followed</h4>
                     <FollowedList/>
                 </div>
             </div>
