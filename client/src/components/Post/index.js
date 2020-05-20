@@ -3,6 +3,8 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { handleFollow, newFollower, getUser } from "../../utils/accountsAPI"
 import { UserContext } from "../../utils/UserContext";
+import Moment from 'react-moment';
+import 'moment-timezone';
 
 
 const Post = (props) => {
@@ -42,7 +44,7 @@ const Post = (props) => {
     return (
         <div>
                     <Card className="post rounded">
-                        <Card.Header className="text-muted">Posted by <b>{props.author}</b> at {props.date}<span> </span>
+                        <Card.Header className="text-muted">Posted by <b>{props.author}</b> at <Moment format='LL'>{props.date}</Moment><span> </span>
                         {user.id  === props.authorID ? null :
                             <Button onClick={() => handleClick((props.authorID))} disabled={disabled}>{btn}</Button>}
                         </Card.Header>
