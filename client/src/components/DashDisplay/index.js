@@ -2,6 +2,7 @@ import React, { useEffect, useContext, useState, Component } from 'react'
 import { getUser, getUserFromID } from "../../utils/accountsAPI"
 import Post from "../Post/index"
 import API from "../../utils/postsAPI"
+import Spinner from 'react-bootstrap/Spinner'
 
 class DashDisplay extends React.Component {
 

@@ -8,6 +8,7 @@ import DashDisplay from "../../components/DashDisplay/index"
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Spinner from 'react-bootstrap/Spinner'
 
 /* This is a very simple component.. it probably doesn't need to be a smart component at this point but you never know what's goingto happen in the future */
 
@@ -45,15 +46,16 @@ function ProtectedRoute() {
 			<div className="alert alert-success" role="alert">
 				Welcome! You are logged in.
 				</div>
-			<row>
-			<CreatePost/>
-			</row>
+			<Row>
+				<CreatePost />
+			</Row>
 			<br></br>
-			<row>
-			<Col xs={6} className="mx-auto">
-			<DashDisplay/>
-			</Col>
-			</row>
+			<Row>
+				<Col xs={6} className="mx-auto">
+				
+					<DashDisplay />
+				</Col>
+			</Row>
 
 		</Container>
 	)
