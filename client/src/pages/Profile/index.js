@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Modal from 'react-bootstrap/Modal'
 import FollowedList from "../../components/FollowedList"
+import "./style.css"
 
 function Profile() {
     const [user, dispatch] = useContext(UserContext);
@@ -83,7 +84,7 @@ function Profile() {
                 <div>
                     <div key={index} className="card">
                         <div className="card-body">
-                            <h5 className="card-title">Title: {post.title}</h5>
+                            <h5 className="card-title">{post.title}</h5>
                             <p className="card-subtitle mb-2 text-muted">#{post.tags}</p>
                             <p className="card-text">Content: {post.text}</p>
                             <button onClick={() => handleShow(post._id)} className="btn" style={{backgroundColor: "rgb(53, 149, 197)", color: "white"}}>Update</button><span> </span>
@@ -99,11 +100,11 @@ function Profile() {
        
     }
     return (
-        <div className="container" style={{backgroundImage: "url('https://www.jakpost.travel/wimages/large/155-1558997_600x250px-beatbox-hd-wallpapers-84-triangle-abstract-art.jpg')", paddingBottom: "100%"}}>
+        <div className="pcontainer rounded" style={{paddingBottom: "100%"}}>
             <div className="row">
                 <div className="col-md-6">
                     <br/>
-                    <h4 style={{color: "rgb(189, 219, 231)", fontWeight: "bold"}}>List of your posts</h4>
+                    <h4 style={{color: "black", fontWeight: "bold", textAlign:"center"}}>List of your posts</h4>
                     <br />
                     {displayPost()}
                     {console.log(updateArray)}
@@ -144,7 +145,7 @@ function Profile() {
                 <div className="col-md-6">
 
                     <br/>
-                    <h4 style={{color: "rgb(189, 219, 231)", fontWeight: "bold"}}>List of people you have followed</h4>
+                    <h4 style={{color: "black", fontWeight: "bold", textAlign:"center"}}>List of people you have followed</h4>
                     <FollowedList/>
                 </div>
             </div>

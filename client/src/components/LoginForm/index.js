@@ -26,7 +26,7 @@ function LoginForm({ onLogin }) {
 				<div className="form-group">
 					<input className="form-control" ref={userNameRef} type='text' name="username" placeholder='Enter Username' /><br />
 					<input className="form-control" ref={passwordRef} type='password' name="password" placeholder='Password' /><br />
-					<button className="btn btn-success" type='submit'>
+					<button className="btn btn-success login" type='submit'>
 						Login
 						</button>
 				</div>

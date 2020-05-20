@@ -41,12 +41,12 @@ const Post = (props) => {
 
     return (
         <div>
-                    <Card>
-                        <Card.Header className="text-muted">Posted by {props.author} at {props.date}<span> </span>
+                    <Card className="post rounded">
+                        <Card.Header className="text-muted">Posted by <b>{props.author}</b> at {props.date}<span> </span>
                         {user.id  === props.authorID ? null :
                             <Button onClick={() => handleClick((props.authorID))} disabled={disabled}>{btn}</Button>}
                         </Card.Header>
-                        <Card.Body>
+                        <Card.Body style={{fontFamily: 'Montserrat, Helvetica, Arial, sans-serif'}}>
                             <Card.Title>{props.title}</Card.Title>
                             <Card.Text>
                                 {props.text}
