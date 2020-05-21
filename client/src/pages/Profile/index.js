@@ -86,7 +86,7 @@ function Profile() {
                         <div className="card-body">
                             <h5 className="card-title">{post.title}</h5>
                             <p className="card-subtitle mb-2 text-muted">#{post.tags}</p>
-                            <p className="card-text">Content: {post.text}</p>
+                            <p className="card-text">{post.text}</p>
                             <button onClick={() => handleShow(post._id)} className="btn" style={{backgroundColor: "rgb(53, 149, 197)", color: "white"}}>Update</button><span> </span>
                             <button onClick={() => deletePost(post._id)} className="btn" style={{backgroundColor: "rgb(194, 55, 55)", color: "white"}}>Delete</button>
                             
@@ -102,8 +102,16 @@ function Profile() {
     return (
         <div className="pcontainer rounded" style={{paddingBottom: "100%"}}>
             <div className="row">
+                <div className="col-md-12">
+                <br/>
+                <h4 style={{color: "rgb(189, 219, 231)", fontWeight: "bold", textAlign: "center", paddingBottom: "20px" ,borderBottom: "2px solid white"}}>You have {user.followed.length} follower(s)</h4>
+                </div>
+            </div>
+        
+            <div className="row">
                 <div className="col-md-6">
                     <br/>
+
                     <h4 style={{color: "black", fontWeight: "bold", textAlign:"center"}}>List of your posts</h4>
                     <br />
                     {displayPost()}
@@ -145,7 +153,9 @@ function Profile() {
                 <div className="col-md-6">
 
                     <br/>
+
                     <h4 style={{color: "black", fontWeight: "bold", textAlign:"center"}}>List of people you have followed</h4>
+
                     <FollowedList/>
                 </div>
             </div>
