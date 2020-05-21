@@ -1,10 +1,11 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import Card from "../../components/Card"
 import { UserContext } from "../../utils/UserContext";
 import CreatePost from "../../components/CreatePostBtn/index"
 import Post from "../../components/Post/index"
 import DisplayCase from "../../components/DisplayCase/index"
 import DashDisplay from "../../components/DashDisplay/index"
+import Spinner from 'react-bootstrap/Spinner'
 
 /* This is a very simple component.. it probably doesn't need to be a smart component at this point but you never know what's goingto happen in the future */
 
@@ -38,14 +39,14 @@ function ProtectedRoute() {
 
 
 	return (
+
 		<div className="container">
 			<div className="alert alert-success" role="alert">
 				Welcome! You are logged in.
 				</div>
-			
-			<CreatePost/>
+			<CreatePost />
 
-			<DashDisplay/>
+			<DashDisplay />
 
 		</div>
 	)

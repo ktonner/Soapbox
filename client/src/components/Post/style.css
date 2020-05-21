@@ -1,0 +1,7 @@
+Card.post{
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+}
+
+Card.Text, Card.Title, Card.Footer, button{
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+}

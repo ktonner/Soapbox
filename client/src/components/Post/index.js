@@ -3,6 +3,8 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { handleFollow, newFollower, getUser } from "../../utils/accountsAPI"
 import { UserContext } from "../../utils/UserContext";
+import Moment from 'react-moment';
+import 'moment-timezone';
 
 
 const Post = (props) => {
@@ -43,29 +45,29 @@ const Post = (props) => {
 
     return (
         <div>
-            <Card>
-                <Card.Header className="text-muted">Posted by {props.author} at {props.date}<span> </span>
-                    {user.id === props.authorID ? null :
-                        <Button onClick={() => handleClick((props.authorID))} disabled={disabled}>{btn}</Button>}
-                </Card.Header>
-                <Card.Body>
-                    <Card.Title>{props.title}</Card.Title>
-                    <Card.Text>
-                        {props.text}
-                    </Card.Text>
-                </Card.Body>
-                <Card.Footer className="text-muted">
-                    {
-                        //Map loops over tags and formats them
-                        (props.tags).map((tag, index) => {
-                            return (
-                                <p key={index} style={{ display: "inline" }}>#{tag} </p>
-                            )
-                        })
-                    }
-                </Card.Footer>
-            </Card>
-            <br />
+                    <Card className="post rounded">
+                        <Card.Header className="text-muted">Posted by <b>{props.author}</b> at <Moment format='LL'>{props.date}</Moment><span> </span>
+                        {user.id  === props.authorID ? null :
+                            <Button onClick={() => handleClick((props.authorID))} disabled={disabled}>{btn}</Button>}
+                        </Card.Header>
+                        <Card.Body style={{fontFamily: 'Montserrat, Helvetica, Arial, sans-serif'}}>
+                            <Card.Title>{props.title}</Card.Title>
+                            <Card.Text>
+                                {props.text}
+                            </Card.Text>
+                        </Card.Body>
+                        <Card.Footer className="text-muted">
+                            {
+                                //Map loops over tags and formats them
+                                (props.tags).map((tag, index) => {
+                                    return (
+                                        <p key={index} style={{ display: "inline" }}>#{tag} </p>
+                                    )
+                                })
+                            }
+                        </Card.Footer>
+                    </Card>
+                    <br/>
         </div>
     )
 }

@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal'
 import API from "../../utils/postsAPI"
 import { UserContext } from "../../utils/UserContext";
 
+
 function CreatePost() {
   const [user, dispatch] = useContext(UserContext);
 
