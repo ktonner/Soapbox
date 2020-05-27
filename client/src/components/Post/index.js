@@ -19,6 +19,8 @@ const Post = (props) => {
                 console.log("already following")
             }
             else{
+        setDisabled(true)
+        setBtn("Followed")
         handleFollow(id).then(
             data => console.log(data)
         ).catch(err=>{
