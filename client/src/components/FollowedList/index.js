@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { getUser, getUserFromID } from "../../utils/accountsAPI"
 import ListGroup from 'react-bootstrap/ListGroup'
+import Button from 'react-bootstrap/Button'
+import UnfollowBtn from '../UnfollowBtn'
 
 function FollowedList() {
 
@@ -34,7 +36,7 @@ function FollowedList() {
             <ListGroup>
                 {followings.map((account,index) => {
                     return (
-                        <ListGroup.Item key={index}>Username: {account}</ListGroup.Item>
+                        <ListGroup.Item key={index}>Username: {account}<UnfollowBtn/></ListGroup.Item>
                     )
                 })}
             </ListGroup>
