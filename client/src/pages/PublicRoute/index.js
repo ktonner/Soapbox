@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/Col'
 function PublicRoute() {
 
     return (
+        
        
         <Col xs={6} className="mx-auto">
      

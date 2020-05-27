@@ -25,7 +25,10 @@ Make sure you start Mongod and have mongoDB running..
 Then start the project
 `yarn start`
 ## Deployment
-This full stack application is deployed on Heroku.
+This full stack application is deployed on Heroku: https://sleepy-brook-72953.herokuapp.com/
+Sign in using 
+username: ktonner 
+password:password
 ## Authors
 * Kathleen Tonner
 * Dung Davidson(Yoom)
