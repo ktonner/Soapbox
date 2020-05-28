@@ -12,6 +12,11 @@ import axios from "axios";
       return axios.put("/api/users/follower/" + id)
     }
 
+          
+    export const removeFollower = (id) => {
+      return axios.delete("/api/users/follower/" + id)
+    }
+
     //get current user
     export const getUser = () => {
       return axios.get("/api/users/user/");
