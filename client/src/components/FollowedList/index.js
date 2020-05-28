@@ -19,7 +19,7 @@ function FollowedList() {
             res.data.following.map((account) => {
                 getUserFromID(account)
                 .then(res => {
-                    setFollowing(followings=>[...followings, res.data.username])
+                    setFollowing(followings=>[...followings, {username: res.data.username, id: account}])
                 })
             })
             //setIsUpdated(true)
@@ -34,9 +34,10 @@ function FollowedList() {
         <div>
             <br/>
             <ListGroup>
-                {followings.map((account,index) => {
+                {followings.map((account) => {
+                    console.log(account)
                     return (
-                        <ListGroup.Item key={index}>Username: {account}<UnfollowBtn/></ListGroup.Item>
+                        <ListGroup.Item key={account.id}>Username: {account.username}<UnfollowBtn/></ListGroup.Item>
                     )
                 })}
             </ListGroup>
