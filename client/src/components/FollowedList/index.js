@@ -16,11 +16,10 @@ function FollowedList() {
     function loadList() {
         getUser().then(res => {
             console.log(res.data.following)
-            const fID = res.data.following
             res.data.following.map((account) => {
                 getUserFromID(account)
                 .then(res => {
-                    setFollowing(followings=>[...followings, {username: res.data.username, id: fID}])
+                    setFollowing(followings=>[...followings, {username: res.data.username, id: account}])
                 })
             })
             //setIsUpdated(true)
@@ -36,6 +35,7 @@ function FollowedList() {
             <br/>
             <ListGroup>
                 {followings.map((account) => {
+                    console.log(account)
                     return (
                         <ListGroup.Item key={account.id}>Username: {account.username}<UnfollowBtn/></ListGroup.Item>
                     )
