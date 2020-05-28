@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react"
 import Button from 'react-bootstrap/Button'
 
 
-function UnfollowBtn() {
+function UnfollowBtn(props) {
 return(
-<Button class="float-right" variant="danger">Unfollow</Button>
+<Button className="float-right" variant="danger" id={props.id}>Unfollow</Button>
 )
 }
 

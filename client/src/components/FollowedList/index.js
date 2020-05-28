@@ -37,7 +37,7 @@ function FollowedList() {
                 {followings.map((account) => {
                     console.log(account)
                     return (
-                        <ListGroup.Item key={account.id}>Username: {account.username}<UnfollowBtn/></ListGroup.Item>
+                        <ListGroup.Item key={account.id}>Username: {account.username}<UnfollowBtn id={account.id}/></ListGroup.Item>
                     )
                 })}
             </ListGroup>
