@@ -22,7 +22,6 @@ class DashDisplay extends React.Component {
                         postsArray.push(post)
                     })
                     this.setState({ posts: postsArray })
-                    console.log(this.state.posts)
                     this.getPostData()
                 })
             })
@@ -32,11 +31,9 @@ class DashDisplay extends React.Component {
 
     getPostData = () => {
         const postData = []
-        console.log(this.state.posts)
         return(
         this.state.posts.map(post => {
             API.getPost(post).then(res => {
-                console.log(res.data)
                 postData.push(res.data)
                 this.setState({postData: postData})
             }
