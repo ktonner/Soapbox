@@ -105,6 +105,17 @@ module.exports = {
 		}
 	},
 	
+	subtractFollowing: async function (req, res) {
+		const { user } = req.session.passport
+		try {
+			const data = await Account.findOneAndUpdate({ username: user },
+				{ $pull: { following: req.params.id }})
+				res.json(data)
+		} catch (err) {
+			return res.status(400).json({ error: errorHandler.getErrorMessage(err) })
+		}
+	},
+	
 	// Method that gets all the users that a specific user is following
 	getFollowingUsers: async function(req,res) {
 		const { user } = req.session.passport
