@@ -4,7 +4,7 @@ import axios from "axios";
       return axios.put("/api/users/follow/" + id)
       }
 
-      export const handleUnfollow = (id) => {
+    export const handleUnfollow = (id) => {
         return axios.delete("/api/user/follow/" + id)
       }
       
