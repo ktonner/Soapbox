@@ -42,6 +42,13 @@ router.route("/follow/:id")
 router.route("/follower/:id")
   .put(usersController.addFollower)
 
+//set up unfollow route
+router.route("/follow/:id")
+  .delete(usersController.subtractFollowing)
+
+// router.route("/follower/:id")
+//   .delete(userController.removeFollower)
+
 //Get users that a specific user is following
 router.route("/users")
       .get(usersController.getFollowingUsers)
