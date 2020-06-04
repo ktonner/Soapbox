@@ -7,6 +7,8 @@ function UnfollowBtn(props) {
 
 const handleClick = (id) => {
    console.log(id)
+   handleUnfollow(id)
+   removeFollower(id)
 }
 
 return(
