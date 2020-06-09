@@ -86,7 +86,7 @@ function Profile() {
                         <div className="card-body">
                             <h5 className="card-title">{post.title}</h5>
                             <p className="card-subtitle mb-2 text-muted">#{post.tags}</p>
-                            <p className="card-text">Content: {post.text}</p>
+                            <p className="card-text">{post.text}</p>
                             <button onClick={() => handleShow(post._id)} className="btn" style={{backgroundColor: "rgb(53, 149, 197)", color: "white"}}>Update</button><span> </span>
                             <button onClick={() => deletePost(post._id)} className="btn" style={{backgroundColor: "rgb(194, 55, 55)", color: "white"}}>Delete</button>
                             

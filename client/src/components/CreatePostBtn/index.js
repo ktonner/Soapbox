@@ -69,7 +69,7 @@ function CreatePost() {
               </Form.Group>
               <br />
               <Form.Group>
-                <Form.Control size="sm" type="text" placeholder="Tags" name="tags" onChange={(e) => setTags(e.target.value)} />
+                <Form.Control size="sm" type="text" placeholder="Tags" name="tags" onChange={(e) => setTags(Array.from(e.target.value))} />
               </Form.Group>
             </div>
           </Modal.Body>
