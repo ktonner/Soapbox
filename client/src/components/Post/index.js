@@ -14,8 +14,8 @@ const Post = (props) => {
 
 
     const handleClick = (id) => {
-        getUser().then(res=>{
-            if(res.data.following.includes(id)){
+        getUser().then(res => {
+            if (res.data.following.includes(id)) {
                 console.log("already following")
             }
             else{
@@ -31,17 +31,31 @@ const Post = (props) => {
             data => console.log(data)
             ).catch(err=>{
                 console.log(err)
+            else {
+                handleFollow(id).then(
+                    data => console.log(data)
+                ).catch(err => {
+                    console.log(err)
+                }
+                )
+                newFollower(id).then(
+                    data => console.log(data)
+                ).catch(err => {
+                    console.log(err)
+                }
+                )
+
             }
-            )
-        }})
+        })
     }
-    
-    getUser(props.authorID).then(res=>{
-        if(res.data.following.includes(props.authorID)){
+
+    getUser(props.authorID).then(res => {
+        if (res.data.following.includes(props.authorID)) {
             console.log("already following")
             setDisabled(true)
             setBtn("Followed")
-        }})
+        }
+    })
 
     return (
         <div>
@@ -69,6 +83,7 @@ const Post = (props) => {
                     </Card>
                     <br/>
         </div>
-                )}
+    )
+}
 
 export default Post
