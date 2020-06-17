@@ -18,6 +18,19 @@ const Post = (props) => {
             if (res.data.following.includes(id)) {
                 console.log("already following")
             }
+            else{
+        setDisabled(true)
+        setBtn("Followed")
+        handleFollow(id).then(
+            data => console.log(data)
+        ).catch(err=>{
+            console.log(err)
+        }
+        )
+        newFollower(id).then(
+            data => console.log(data)
+            ).catch(err=>{
+                console.log(err)
             else {
                 setDisabled(true)
                 setBtn("Followed")
@@ -33,6 +46,7 @@ const Post = (props) => {
                     console.log(err)
                 }
                 )
+
             }
         })
     }
@@ -47,13 +61,13 @@ const Post = (props) => {
 
     return (
         <div>
-                    <Card className="post rounded">
+                    <Card className="post rounded" border='1px solid black'>
                         <Card.Header className="text-muted">Posted by <b>{props.author}</b> at <Moment format='LL'>{props.date}</Moment><span> </span>
                         {user.id  === props.authorID ? null :
                             <Button onClick={() => handleClick((props.authorID))} disabled={disabled}>{btn}</Button>}
                         </Card.Header>
                         <Card.Body style={{fontFamily: 'Montserrat, Helvetica, Arial, sans-serif'}}>
-                            <Card.Title>{props.title}</Card.Title>
+                            <Card.Title style={{fontWeight: 'bold'}}>{props.title}</Card.Title>
                             <Card.Text>
                                 {props.text}
                             </Card.Text>

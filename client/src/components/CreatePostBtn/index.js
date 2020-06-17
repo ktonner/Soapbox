@@ -15,7 +15,7 @@ function CreatePost() {
 
   const [title, setTitle] = useState("")
   const [text, setText] = useState("")
-  const [tags, setTags] = useState("")
+  const [tags, setTags] = useState([])
 
 
 

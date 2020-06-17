@@ -35,9 +35,9 @@ class DashDisplay extends React.Component {
 
     render() {
         return (
-            <div style={{backgroundColor: "lightblue"}}>
+            <div style={{backgroundColor: "#e8e7e3", borderRadius: '10px'}}>
             <br/>
-            <h4 style={{textAlign: "center"}}>Search posts by hashtag#</h4>
+            <h4 style={{textAlign: "center", fontFamily: 'Montserrat, Helvetica, Arial, sans-serif'}}>Search posts by hashtag#</h4>
             <input type="text" placeholder="Enter # name" onChange={this.handleInput} style={{border: "2px solid rgb(57, 137, 187)", fontSize: "20px", marginLeft: "40%"}} />
             <br/><br/>
             {this.state.filteredPosts.map((post, index) => {
