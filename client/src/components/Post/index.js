@@ -45,7 +45,7 @@ const Post = (props) => {
 
     return (
         <div>
-                    <Card className="post rounded">
+                    <Card className="post rounded" border='1px solid black'>
                         <Card.Header className="text-muted">Posted by <b>{props.author}</b> at <Moment format='LL'>{props.date}</Moment><span> </span>
                         {user.id  === props.authorID ? null :
                             <Button onClick={() => handleClick((props.authorID))} disabled={disabled}>{btn}</Button>}
