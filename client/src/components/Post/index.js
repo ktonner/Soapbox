@@ -51,7 +51,7 @@ const Post = (props) => {
                             <Button onClick={() => handleClick((props.authorID))} disabled={disabled}>{btn}</Button>}
                         </Card.Header>
                         <Card.Body style={{fontFamily: 'Montserrat, Helvetica, Arial, sans-serif'}}>
-                            <Card.Title>{props.title}</Card.Title>
+                            <Card.Title style={{fontWeight: 'bold'}}>{props.title}</Card.Title>
                             <Card.Text>
                                 {props.text}
                             </Card.Text>
