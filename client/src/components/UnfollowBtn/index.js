@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button'
 import { handleUnfollow, removeFollower } from '../../utils/accountsAPI'
 
 
+
 function UnfollowBtn(props) {
 
 const handleClick = (id) => {
@@ -12,7 +13,7 @@ const handleClick = (id) => {
 }
 
 return(
-<Button className="float-right" variant="danger" id={props.id} onClick={() => handleClick((props.id))}>Unfollow</Button>
+<Button className="float-right" variant="danger" disabled={false} id={props.id} onClick={() => handleClick((props.id))}>Unfollow</Button>
 )
 }
 
