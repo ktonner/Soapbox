@@ -23,7 +23,7 @@ router.route("/logout")
 router.route("/user")
   .get(usersController.getUser);
 
-  router.route("/:id")
+router.route("/:id")
   .get(usersController.getUserFromID)
 
 /* Testing Endpoint */
@@ -31,8 +31,8 @@ router
   .route("/ping")
   .get(usersController.test);
 
-  //get specific user by id
-  router.route("/:id")
+//get specific user by id
+router.route("/:id")
   .get(usersController.getUserFromID)
 
 //Set up follow route
@@ -42,8 +42,15 @@ router.route("/follow/:id")
 router.route("/follower/:id")
   .put(usersController.addFollower)
 
+//set up unfollow route
+router.route("/follow/:id")
+  .delete(usersController.subtractFollowing);
+
+router.route("/follower/:id")
+  .delete(usersController.removeFollower)
+
 //Get users that a specific user is following
 router.route("/users")
-      .get(usersController.getFollowingUsers)
+  .get(usersController.getFollowingUsers)
 
-  module.exports = router;
+module.exports = router;

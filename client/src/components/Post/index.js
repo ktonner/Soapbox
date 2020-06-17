@@ -32,7 +32,6 @@ const Post = (props) => {
             ).catch(err=>{
                 console.log(err)}
                 )
-
             }
         })
     }

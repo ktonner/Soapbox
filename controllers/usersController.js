@@ -105,6 +105,18 @@ module.exports = {
 		}
 	},
 	
+	subtractFollowing: async function (req, res) {
+		const { user } = req.session.passport
+		try {
+			console.log('This is the unfollowing')
+			const data = await Account.findOneAndUpdate({username: user },
+				{ $pull: { following: {$in: [req.params.id]}}})
+				res.json(data)
+		} catch (err) {
+			return res.status(400).json({ error: errorHandler.getErrorMessage(err) })
+		}
+	},
+
 	// Method that gets all the users that a specific user is following
 	getFollowingUsers: async function(req,res) {
 		const { user } = req.session.passport
@@ -130,6 +142,21 @@ module.exports = {
 						{ $push: { followed: userID } }, { new: true })
 				
 			)
+		} catch (err) {
+			return res.status(400).json({ error: errorHandler.getErrorMessage(err) })
+		}
+	},
+
+	removeFollower: async function(req, res){
+		const { user } = req.session.passport
+		const userName = { user }.user
+		try {
+			console.log('removing follower')
+			Account.findOne({ username: userName }, function (err, obj) { return obj._id }).then(
+				userID =>
+					Account.findOneAndUpdate({ _id: req.params.id },
+						{ $pull: { followed: {$in: [userID]} } }, { new: true })
+			).catch(err=>res.status(422).json(err))
 		} catch (err) {
 			return res.status(400).json({ error: errorHandler.getErrorMessage(err) })
 		}
