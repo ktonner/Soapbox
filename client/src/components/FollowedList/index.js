@@ -3,11 +3,14 @@ import { getUser, getUserFromID } from "../../utils/accountsAPI"
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
 import UnfollowBtn from '../UnfollowBtn'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from 'react-loader-spinner'
 
 function FollowedList() {
 
     const [followings, setFollowing] = useState([])
     const {isUpdated, setIsUpdated} = useState(false)
+    const {loading, setLoading} = useState(true)
 
     useEffect(() => {
         loadList()
@@ -28,11 +31,22 @@ function FollowedList() {
             .catch(err => console.log(err));
     };
 
+    
 
 
     return (
         <div>
             <br/>
+                <div align="center">
+                      <Loader
+                      type="TailSpin"
+                      color="#00BFFF"
+                      height={50}
+                      width={50}
+                      timeout={3200} //3 secs
+                   />
+                   </div>
+                   <br/>
             <ListGroup>
                 {followings.map((account) => {
                     console.log(account)
