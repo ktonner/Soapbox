@@ -104,7 +104,7 @@ function Profile() {
             <div className="row">
                 <div className="col-md-12">
                 <br/>
-                <h4 style={{color: "rgb(189, 219, 231)", fontWeight: "bold", textAlign: "center", paddingBottom: "20px" ,borderBottom: "2px solid white"}}>You have {user.followed.length} follower(s)</h4>
+                <h4 style={{fontWeight: "bold", textAlign: "center", paddingBottom: "20px" ,borderBottom: "2px solid white"}}>You have {user.followed.length} follower(s)</h4>
                 </div>
             </div>
         

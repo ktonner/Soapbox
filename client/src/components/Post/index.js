@@ -30,19 +30,7 @@ const Post = (props) => {
         newFollower(id).then(
             data => console.log(data)
             ).catch(err=>{
-                console.log(err)
-            else {
-                handleFollow(id).then(
-                    data => console.log(data)
-                ).catch(err => {
-                    console.log(err)
-                }
-                )
-                newFollower(id).then(
-                    data => console.log(data)
-                ).catch(err => {
-                    console.log(err)
-                }
+                console.log(err)}
                 )
 
             }
